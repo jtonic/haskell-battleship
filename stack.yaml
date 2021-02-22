@@ -1,0 +1,7 @@
+# https://docs.haskellstack.org/en/stable/yaml_configuration/
+resolver: lts-17.2
+packages:
+- .
+extra-deps: []
+# require-stack-version: -any # Default
+require-stack-version: ">=2.5"

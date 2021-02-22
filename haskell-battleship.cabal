@@ -1,0 +1,71 @@
+cabal-version: 2.0
+
+-- This file has been generated from package.yaml by hpack version 0.34.3.
+--
+-- see: https://github.com/sol/hpack
+
+name:           haskell-battleship
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/haskell-battleship#readme>
+homepage:       https://github.com/jtonic/haskell-battleship#readme
+bug-reports:    https://github.com/jtonic/haskell-battleship/issues
+author:         Antonel-Ernest Pazargic
+maintainer:     antonel.pazargic@gmail.com
+copyright:      2021 Antonel-Ernest Pazargic
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+tested-with:
+    GHC == 8.10.3
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/jtonic/haskell-battleship
+
+library
+  exposed-modules:
+      Empty
+  hs-source-dirs:
+      empty
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+library battleship-lib
+  exposed-modules:
+      Lib
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+executable battleship-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_battleship
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base >=4.7 && <5
+    , battleship-lib
+  default-language: Haskell2010
+
+test-suite haskell-battleship-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_haskell_battleship
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  build-depends:
+      base >=4.7 && <5
+    , battleship-lib
+  default-language: Haskell2010
