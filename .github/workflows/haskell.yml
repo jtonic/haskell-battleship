@@ -1,0 +1,20 @@
+# haskell git action: https://github.com/haskell/actions/tree/main/setup
+
+on: [push]
+name: build
+jobs:
+  haskell-build:
+    name: Haskell-battleship
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: haskell/actions/setup@v1
+        with:
+          ghc-version: '8.10'
+          cabal-version: '3.2'
+          enable-stack: true
+          stack-version: '2.5'
+      - name: Run Haskell Tests
+        run: stack test --fast --no-haddock --no-haddock-deps
+      # - name: Build Haskell Package Documentation
+      #   run: stack haddock
