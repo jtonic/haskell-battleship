@@ -7,7 +7,7 @@
 - [x] [a] Install and configure the VS Code Haskell extension (Haskell Language Server)
 
 ## Sprint 1 (16 Jun 2021)
-- [ ] [a] Create the project (structure) - one lib and one executable
+- [x] [a] Create the project (structure) - one lib and one executable
 - [ ] [a] Use RIO instead of Prelude module
 - [ ] [a] Create the [domain model](./architecture_design.md#domain-model))
 
@@ -28,9 +28,7 @@
    - [ ] [a] Local (file) logging
    - [ ] [b] Centralized logging
 5. [ ] [a] JSON (de)serialization
-6. Haskell project structure idiom
-   - [ ] [a] **Multi package / multi module application**
-8.  [ ] Expose the interactions with engine by:
+6.  [ ] Expose the interactions with engine by:
    - [ ] [a] HTTP RESTful microservices
    - [ ] [b] Messaging (Kafka)
 10. [ ] [b] Concurrency
@@ -65,3 +63,7 @@
    - Haskell in Depth by VITALY BRAGILEVSKY
 21. [ ] [ ] Risks:
    - [ ] How security flows in used libraries are handled by the community/ecosystem
+
+
+## Failed/later
+1. [ ] Multi package / multi module application

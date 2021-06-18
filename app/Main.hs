@@ -1,6 +1,6 @@
 module Main where
 
-import Lib
+import qualified Battleship as B
 
 main :: IO ()
-main = battleship
+main = B.run

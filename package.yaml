@@ -21,13 +21,6 @@ extra-source-files:
 - README.md
 - ChangeLog.md
 
-# Metadata used when publishing your package
-# synopsis:            Short description of your package
-# category:            Web
-
-# To avoid duplicated efforts in documentation and dealing with the
-# complications of embedding Haddock markup inside cabal files, it is
-# common to point users to the README.md file.
 description: Please see the README on GitHub at <https://github.com/githubuser/haskell-battleship#readme>
 
 tested-with: GHC == 8.10.3
@@ -36,26 +29,18 @@ dependencies:
 - base >= 4.7 && < 5
 
 library:
-    source-dirs: empty
-    exposed-modules: Empty
-    other-modules: []
+    source-dirs: src
 
 executables:
-  battleship-exe:
+  battleship:
     main:                Main.hs
     source-dirs:         app
     dependencies:
-    - battleship-lib
+    - haskell-battleship
 
 tests:
-  haskell-battleship-test:
+  battleship-test:
     main:                Spec.hs
     source-dirs:         test
     dependencies:
-    - battleship-lib
-
-internal-libraries:
-    battleship-lib:
-        source-dirs: src
-        exposed-modules: Lib
-        other-modules: []
+    - haskell-battleship
