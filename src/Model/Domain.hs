@@ -3,6 +3,8 @@ module Model.Domain (
     target
 ) where
 
+import RIO (Show, Int)
+
 data Target = Target {
     x :: Int
     , y :: Int

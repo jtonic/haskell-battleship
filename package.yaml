@@ -6,6 +6,11 @@ author:              "Antonel-Ernest Pazargic"
 maintainer:          "antonel.pazargic@gmail.com"
 copyright:           "2021 Antonel-Ernest Pazargic"
 
+default-extensions:
+  - OverloadedStrings
+  - LambdaCase
+  - NoImplicitPrelude
+
 ghc-options:
   - -Wall
   - -Werror
@@ -18,15 +23,16 @@ ghc-options:
   # - -XNoImplicitPrelude
 
 extra-source-files:
-- README.md
-- ChangeLog.md
+  - README.md
+  - ChangeLog.md
 
 description: Please see the README on GitHub at <https://github.com/githubuser/haskell-battleship#readme>
 
 tested-with: GHC == 8.10.3
 
 dependencies:
-- base >= 4.7 && < 5
+  - base >= 4.7 && < 5
+  - rio
 
 library:
     source-dirs: src

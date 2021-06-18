@@ -8,7 +8,7 @@
 
 ## Sprint 1 (16 Jun 2021)
 - [x] [a] Create the project (structure) - one lib and one executable
-- [ ] [a] Use RIO instead of Prelude module
+- [x] [a] Use RIO instead of Prelude module
 - [ ] [a] Create the [domain model](./architecture_design.md#domain-model))
 
 ## Next sprints

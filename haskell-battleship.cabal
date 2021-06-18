@@ -33,9 +33,14 @@ library
       Paths_haskell_battleship
   hs-source-dirs:
       src
+  default-extensions:
+      OverloadedStrings
+      LambdaCase
+      NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
   build-depends:
       base >=4.7 && <5
+    , rio
   default-language: Haskell2010
 
 executable battleship
@@ -44,10 +49,15 @@ executable battleship
       Paths_haskell_battleship
   hs-source-dirs:
       app
+  default-extensions:
+      OverloadedStrings
+      LambdaCase
+      NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
   build-depends:
       base >=4.7 && <5
     , haskell-battleship
+    , rio
   default-language: Haskell2010
 
 test-suite battleship-test
@@ -57,8 +67,13 @@ test-suite battleship-test
       Paths_haskell_battleship
   hs-source-dirs:
       test
+  default-extensions:
+      OverloadedStrings
+      LambdaCase
+      NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
   build-depends:
       base >=4.7 && <5
     , haskell-battleship
+    , rio
   default-language: Haskell2010
