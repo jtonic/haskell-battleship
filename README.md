@@ -14,5 +14,23 @@ This project is about the implementation of the game, and additional companions,
     __Goals:__
       By the end of 2021 the battleship application with all the technologies/technics exposed [here](doc/haskell_to_production.md) shall be implemented.
 
+## How to build and run
+
+1. Build the application in watch mode
+
+    `stack build --fast --file-watch`
+
+2. Test the application in watch mode and
+
+    `stack test --fast --file-watch`
+
+3. Build the application considering the performance ghc switches
+
+    `stack build`
+
+ 4. Run the engine command of the application
+
+    `stack exec -- battleship engine --engine-name ubots --engine-default-timeout 100  --output-format-string`
+
 ## Useful links
 1. [Learning material](./doc/learning_material.md)

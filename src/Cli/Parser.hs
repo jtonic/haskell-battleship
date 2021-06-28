@@ -8,7 +8,7 @@ import           Options.Applicative as O
 import           RIO
 
 oOutputFormat :: O.Parser OutputFormat
-oOutputFormat = oOutputFormatString O.<|> oOutputFormatFile
+oOutputFormat = oOutputFormatString <|> oOutputFormatFile
   where
     oOutputFormatFile = OutputFormatFile <$> outputFormatFile
     outputFormatFile =
@@ -24,31 +24,18 @@ oOutputFormat = oOutputFormatString O.<|> oOutputFormatFile
 oCommand :: O.Parser Command
 oCommand =
   O.subparser
-    (O.command "new-tenant" $
-     O.info oNewTenant $ O.progDesc "Onboard a new tenant")
+    (O.command "engine" $
+     O.info oEngine $ O.progDesc "Start the game engine.")
   where
-    oNewTenant =
-      NewTenant <$> oTenantName <*> oIpcGroup <*> oTemplateDir <*> oOutputDir
-    oTenantName =
-      O.strOption $ O.long "tenant-name" <> O.help "The name of the new tenant"
-    oIpcGroup =
-      O.strOption $
-      O.long "ipc-group" <>
-      O.value "A" <>
-      O.help "The IPC group the new tenant is gonna be deployed on"
-    oTemplateDir =
-      O.strOption $
-      O.long "template-dir" <>
-      O.value "../new_tenant_template" <>
-      O.help
-        "The template directory used to generate the new tenant configuration" <>
-      O.metavar "DIR"
-    oOutputDir =
-      O.strOption $
-      O.long "output-dir" <>
-      O.help
-        "The directory where the new template configuration will be saved into" <>
-      O.metavar "DIR"
+    oEngine =
+      Engine <$> oEngineName <*> oEngineDefaultTimeout
+    oEngineName =
+      O.strOption $ O.long "engine-name" <> O.help "The engine name."
+    oEngineDefaultTimeout =
+      O.option auto $
+      O.long "engine-default-timeout" <>
+      O.value -1 <>
+      O.help "Default engine timeout"
 
 optionsParser :: O.Parser Options
 optionsParser =

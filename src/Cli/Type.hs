@@ -17,9 +17,7 @@ data OutputFormat
   deriving (Show)
 
 data Command =
-    NewTenant {
-        tenantName  :: String,
-        ipcGroup    :: String,
-        templateDir :: FilePath,
-        outputDir   :: FilePath
+    Engine {
+        engineName  :: String
+        , engineDefaultTimeout :: Int
      } deriving (Show)

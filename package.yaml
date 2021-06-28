@@ -20,6 +20,8 @@ ghc-options:
   - -Wincomplete-record-updates
   - -Wno-unused-top-binds
   - -Wno-orphans
+  - -XNegativeLiterals
+  # - -Wno-unused-imports
   # - -XNoImplicitPrelude
 
 dependencies:

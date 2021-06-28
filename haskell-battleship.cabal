@@ -1,8 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
+--
+-- hash: eeef09a6e2604511d7fc496b933cf09d35d44c482adafb2e49efe768bdf6d866
 
 name:           haskell-battleship
 version:        0.1.0.0
@@ -37,11 +39,8 @@ library
       Paths_haskell_battleship
   hs-source-dirs:
       src
-  default-extensions:
-      OverloadedStrings
-      LambdaCase
-      NoImplicitPrelude
-  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  default-extensions: OverloadedStrings LambdaCase NoImplicitPrelude
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals
   build-depends:
       base
     , extra
@@ -56,11 +55,8 @@ executable battleship
       Paths_haskell_battleship
   hs-source-dirs:
       app
-  default-extensions:
-      OverloadedStrings
-      LambdaCase
-      NoImplicitPrelude
-  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -threaded -rtsopts -with-rtsopts=-N
+  default-extensions: OverloadedStrings LambdaCase NoImplicitPrelude
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base
     , extra
@@ -77,11 +73,8 @@ test-suite battleship-test
       Paths_haskell_battleship
   hs-source-dirs:
       test
-  default-extensions:
-      OverloadedStrings
-      LambdaCase
-      NoImplicitPrelude
-  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -threaded -rtsopts -with-rtsopts=-N
+  default-extensions: OverloadedStrings LambdaCase NoImplicitPrelude
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base
     , extra

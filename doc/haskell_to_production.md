@@ -6,15 +6,23 @@
 - [x] [a] Install haskell stack
 - [x] [a] Install and configure the VS Code Haskell extension (Haskell Language Server)
 
-## Sprint 1 (16 Jun 2021)
-- [x] [a] Create the project (structure) - one lib and one executable
-- [x] [a] Use RIO instead of Prelude module
-- [ ] [a] Create the [domain model](./architecture_design.md#domain-model))
+## Sprint 2 (28 Jun 2021)
+- [ ] Command line interface to interact with the business logic (battleship engine)
+  - [ ] engine
+  - [ ] client
+- [ ] Simple logging
 
 ## Next sprints
-- [ ] Command line interface to interact with the business logic (battleship engine)
-   - [ ] [a] Simple cli
-   - [ ] [b] Advanced cli
+
+- [ ] Add the app options in the RIO reader
+- [ ] Handling RIO reader with the optics/lenses
+- [ ] database (with sqlite) integration
+- [ ] kafka integration
+- [ ] engine implementation
+- [ ] REST service integration
+- [ ] REST client integration
+- [ ] Parallelism and concurrency
+- [ ] [Optional] Cassandra integration
 
 ## Backlog
 ### See below the application development lifecycle phases and associated technologies/libraries.
@@ -67,3 +75,11 @@
 
 ## Failed/later
 1. [ ] Multi package / multi module application
+
+## Finished sprints
+  - [x] Sprint 1 (16 Jun 2021)
+    - [x] [a] Create the project (structure) - one lib and one executable
+    - [x] [a] Use RIO instead of Prelude module
+    - [x] [a] Create the [domain model](./architecture_design.md#domain-model))
+
+
