@@ -11,13 +11,14 @@
   - [x] engine
   - [x] client
   - [ ] clean up the cli options and its commands by garbage
+- [ ] Add the app options in the RIO reader
+- [ ] Use lenses/optics to get useful information from CLI options.
 
   > Note: Address the commands issue by applying [this fix](https://stackoverflow.com/questions/59722106/subcommand-help-using-optparse-applicative)
 - [ ] Simple logging
 
 ## Next sprints
 
-- [ ] Add the app options in the RIO reader
 - [ ] Handling RIO reader with the optics/lenses
 - [ ] database (with sqlite) integration
 - [ ] kafka integration

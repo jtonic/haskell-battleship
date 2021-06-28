@@ -9,10 +9,9 @@ import           Util.Log            (infoM, initLogger)
 main :: IO ()
 main = do
     initLogger
-    -- opts :: Options
     opts' <- O.execParser opts
     infoM "Main" $ show opts'
-    run
+    run opts'
     where
         opts = info (optionsParser <**> helper)
             (fullDesc

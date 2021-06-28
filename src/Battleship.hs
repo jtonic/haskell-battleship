@@ -1,4 +1,5 @@
 {-# LANGUAGE NamedFieldPuns, OverloadedStrings #-}
+{-# OPTIONS_GHC -Wno-unused-matches #-}
 
 module Battleship where
 
@@ -6,33 +7,26 @@ import           RIO
 import           RIO.Text
 import           RIO.Time
 import Util.Log (infoM)
+import Cli.Type
 
 loggerName :: String
 loggerName = "Battleship"
 
-data App = App {
-    appName          :: Text
-    , appDescription :: Text
-}
+run :: Options -> IO ()
+run opt = do
+    runRIO opt $ startApp >> sayTime >> stopApp
 
-run :: IO ()
-run = do
-    let app :: App
-        app = App {
-            appName = "Battleship"
-            , appDescription = "Battleship game"
-            }
-    runRIO app $ startApp >> sayTime >> stopApp
-
-startApp :: RIO App ()
+startApp :: RIO Options ()
 startApp = do
-    App name desc <- ask
-    say $ "Starting the app." <> " Name: " <> name <> ", desc: " <> desc
+    opt <- ask
+    say $ "Starting the app. Verbose mode: " <> pack (show $ verbose opt)
+    -- say $ "Starting the app." <> " Name: " <> opt <> ", desc: " <> desc
 
-stopApp :: RIO App ()
+stopApp :: RIO Options ()
 stopApp = do
-    App name desc <- ask
-    say $ "Stopping the app." <> " Name: " <> name <> ", desc: " <> desc
+    opt <- ask
+    say $ "Stopping the app."
+    -- say $ "Stopping the app." <> " Name: " <> name <> ", desc: " <> desc
 
 sayTime :: RIO env ()
 sayTime = do
