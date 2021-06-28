@@ -1,0 +1,2 @@
+:set prompt "\ESC[95m\STXλ > \ESC[m\STX"
+:set +m

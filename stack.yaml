@@ -4,4 +4,4 @@ packages:
 - .
 extra-deps: []
 # require-stack-version: -any # Default
-require-stack-version: ">=2.5"
+# require-stack-version: ">=2.5"

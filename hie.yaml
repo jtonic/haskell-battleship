@@ -1,0 +1,10 @@
+cradle:
+  stack:
+    - path: "./app/"
+      component: "haskell-battleship:exe:battleship"
+    - path: "./src/"
+      component: "haskell-battleship:lib"
+    - path: "./test/"
+      component: "haskell-battleship:test:battleship-test"
+    - path: "./Setup.hs"
+      component: "Cabal"

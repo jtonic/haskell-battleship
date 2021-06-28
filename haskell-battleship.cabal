@@ -15,8 +15,6 @@ copyright:      2021 Antonel-Ernest Pazargic
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
-tested-with:
-    GHC == 8.10.3
 extra-source-files:
     README.md
     ChangeLog.md
@@ -28,7 +26,13 @@ source-repository head
 library
   exposed-modules:
       Battleship
+      Cli.Parser
+      Cli.Type
       Model.Domain
+      Tmp.Cli
+      Tmp.Optics.Model
+      Tmp.RioEx
+      Util.Log
   other-modules:
       Paths_haskell_battleship
   hs-source-dirs:
@@ -39,7 +43,10 @@ library
       NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
   build-depends:
-      base >=4.7 && <5
+      base
+    , extra
+    , hslogger
+    , optparse-applicative
     , rio
   default-language: Haskell2010
 
@@ -53,10 +60,13 @@ executable battleship
       OverloadedStrings
       LambdaCase
       NoImplicitPrelude
-  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      base
+    , extra
     , haskell-battleship
+    , hslogger
+    , optparse-applicative
     , rio
   default-language: Haskell2010
 
@@ -71,9 +81,13 @@ test-suite battleship-test
       OverloadedStrings
       LambdaCase
       NoImplicitPrelude
-  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans
+  ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      base
+    , extra
     , haskell-battleship
+    , hslogger
+    , hspec
+    , optparse-applicative
     , rio
   default-language: Haskell2010
