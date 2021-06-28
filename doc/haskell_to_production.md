@@ -8,9 +8,11 @@
 
 ## Sprint 2 (28 Jun 2021)
 - [ ] Command line interface to interact with the business logic (battleship engine)
-  - [ ] engine
-  - [ ] client
-  - [ ] Address the commands issue by applying [this fix](https://stackoverflow.com/questions/59722106/subcommand-help-using-optparse-applicative)
+  - [x] engine
+  - [x] client
+  - [ ] clean up the cli options and its commands by garbage
+
+  > Note: Address the commands issue by applying [this fix](https://stackoverflow.com/questions/59722106/subcommand-help-using-optparse-applicative)
 - [ ] Simple logging
 
 ## Next sprints

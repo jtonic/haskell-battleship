@@ -23,12 +23,12 @@ oOutputFormat = oOutputFormatString <|> oOutputFormatFile
 
 oCommands :: O.Parser Commands
 oCommands =
-  O.subparser
-    (O.command "engine" $
-     O.info oEngine $ O.progDesc "Start the game engine.")
-  <|> O.subparser
-    (O.command "client" $
-     O.info oClient $ O.progDesc "Run the client app.")
+  O.hsubparser
+    (O.command "engine" (O.info oEngine $ O.progDesc "Start the game engine.")
+     <> O.commandGroup "Engine command:" <> O.metavar "Engine COMMAND")
+  <|> O.hsubparser
+    (O.command "client" (O.info oClient $ O.progDesc "Run the client app.")
+    <> O.commandGroup "Client command:" <> O.metavar "Client COMMAND")
 
   where
     oEngine :: Parser Commands
@@ -39,17 +39,14 @@ oCommands =
       O.strOption $ O.long "engine-name" <> O.help "The engine name."
     oEngineDefaultTimeout :: Parser Int
     oEngineDefaultTimeout =
-      O.option auto $
-      O.long "engine-default-timeout" <>
-      O.value -1 <>
-      O.help "Default engine timeout"
+      O.option auto $  O.long "engine-default-timeout" <> O.value -1 <> O.showDefault <> O.help "Default engine timeout (-1 means no timeout)"
 
     oClient =
       Client <$> oClientPort <*> oClientTimeout
     oClientPort :: Parser Int
-    oClientPort = O.option auto $ O.long "client-port" <> O.value 8080 <> O.help "Client port"
+    oClientPort = O.option auto $ O.long "client-port" <> O.value 8080 <> O.showDefault <> O.help "Client port"
     oClientTimeout :: Parser Int
-    oClientTimeout = O.option auto $ O.long "client-timeout" <> O.value -1 <> O.help "Client timeout"
+    oClientTimeout = O.option auto $ O.long "client-timeout" <> O.value -1 <> O.showDefault <> O.help "Client timeout (-1 means no timeout)"
 
 optionsParser :: O.Parser Options
 optionsParser =
