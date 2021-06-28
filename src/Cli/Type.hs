@@ -4,7 +4,7 @@ import           RIO
 
 data Options =
   Options {
-    command      :: Command,
+    command      :: Commands,
     verbose      :: Bool,
     outputFormat :: OutputFormat,
     dryRun       :: Bool,
@@ -16,8 +16,14 @@ data OutputFormat
   | OutputFormatFile FilePath
   deriving (Show)
 
-data Command =
+data Commands =
     Engine {
-        engineName  :: String
-        , engineDefaultTimeout :: Int
-     } deriving (Show)
+        engineName      :: String
+        , engineTimeout :: Int
+    }
+    | Client {
+        clientPort      :: Int
+        , clientTimeout :: Int
+    }
+
+     deriving (Show)

@@ -28,9 +28,15 @@ This project is about the implementation of the game, and additional companions,
 
     `stack build`
 
- 4. Run the engine command of the application
+ 1. Run the engine cli command
 
     `stack exec -- battleship engine --engine-name ubots --engine-default-timeout 100  --output-format-string`
+
+ 2. Run the client cli command
+
+    `stack exec -- battleship client --output-format-string`
+
+
 
 ## Useful links
 1. [Learning material](./doc/learning_material.md)

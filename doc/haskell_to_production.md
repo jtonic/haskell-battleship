@@ -10,6 +10,7 @@
 - [ ] Command line interface to interact with the business logic (battleship engine)
   - [ ] engine
   - [ ] client
+  - [ ] Address the commands issue by applying [this fix](https://stackoverflow.com/questions/59722106/subcommand-help-using-optparse-applicative)
 - [ ] Simple logging
 
 ## Next sprints
