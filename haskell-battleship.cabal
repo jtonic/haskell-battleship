@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: eeef09a6e2604511d7fc496b933cf09d35d44c482adafb2e49efe768bdf6d866
+-- hash: 2f3f83b1243dd4cbd18bfe151ee527d6468ce736845001e534bba96a0bb94a4c
 
 name:           haskell-battleship
 version:        0.1.0.0
@@ -31,15 +31,18 @@ library
       Cli.Parser
       Cli.Type
       Model.Domain
-      Tmp.Cli
       Tmp.Optics.Model
+      Tmp.PatternMatching
       Tmp.RioEx
       Util.Log
   other-modules:
       Paths_haskell_battleship
   hs-source-dirs:
       src
-  default-extensions: OverloadedStrings LambdaCase NoImplicitPrelude
+  default-extensions:
+      OverloadedStrings
+      LambdaCase
+      NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals
   build-depends:
       base
@@ -55,7 +58,10 @@ executable battleship
       Paths_haskell_battleship
   hs-source-dirs:
       app
-  default-extensions: OverloadedStrings LambdaCase NoImplicitPrelude
+  default-extensions:
+      OverloadedStrings
+      LambdaCase
+      NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base
@@ -73,7 +79,10 @@ test-suite battleship-test
       Paths_haskell_battleship
   hs-source-dirs:
       test
-  default-extensions: OverloadedStrings LambdaCase NoImplicitPrelude
+  default-extensions:
+      OverloadedStrings
+      LambdaCase
+      NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base
