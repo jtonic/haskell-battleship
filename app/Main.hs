@@ -1,7 +1,7 @@
 module Main where
 
-import           Battleship
 import           Cli.Parser
+import           Dispatcher  (run)
 import           Options.Applicative as O
 import           RIO
 import           Util.Log            (infoM, initLogger)
@@ -9,9 +9,10 @@ import           Util.Log            (infoM, initLogger)
 main :: IO ()
 main = do
     initLogger
-    opts' <- O.execParser opts
+    opts' <- execParser opts
     infoM "Main" $ show opts'
     run opts'
+    return ()
     where
         opts = info (optionsParser <**> helper)
             (fullDesc

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2f3f83b1243dd4cbd18bfe151ee527d6468ce736845001e534bba96a0bb94a4c
+-- hash: eccd5a31d68a801c902cc75ef4ae7fa38c1d477ca77a39e4944e70a9aad03e40
 
 name:           haskell-battleship
 version:        0.1.0.0
@@ -27,10 +27,11 @@ source-repository head
 
 library
   exposed-modules:
-      Battleship
       Cli.Parser
       Cli.Type
-      Model.Domain
+      Dispatcher
+      Engine.Battleship
+      Engine.Model.Domain
       Tmp.Optics.Model
       Tmp.PatternMatching
       Tmp.RioEx

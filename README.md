@@ -30,11 +30,11 @@ This project is about the implementation of the game, and additional companions,
 
  1. Run the engine cli command
 
-    `stack exec -- battleship engine --engine-name ubots --engine-default-timeout 100  --output-format-string`
+    `stack run -- engine --engine-name battleship --output-format-string`
 
  2. Run the client cli command
 
-    `stack exec -- battleship client --output-format-string`
+    `stack run -- client --output-format-string`
 
 
 

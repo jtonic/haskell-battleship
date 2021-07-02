@@ -2,7 +2,7 @@ module Cli.Parser(
     optionsParser
 ) where
 
-import           Cli.Type            (Commands (..), Options (..),
+import           Cli.Type            (Command (..), Options (..),
                                       OutputFormat (..))
 import           Options.Applicative as O
 import           RIO
@@ -21,7 +21,7 @@ oOutputFormat = oOutputFormatString <|> oOutputFormatFile
         OutPutFormatString
         (O.long "output-format-string" <> O.help "Output the result as string")
 
-oCommands :: O.Parser Commands
+oCommands :: O.Parser Command
 oCommands =
   O.hsubparser
     (O.command "engine" (O.info oEngine $ O.progDesc "Start the game engine.")
@@ -31,7 +31,7 @@ oCommands =
     <> O.commandGroup "Client command:" <> O.metavar "Client COMMAND")
 
   where
-    oEngine :: Parser Commands
+    oEngine :: Parser Command
     oEngine =
       Engine <$> oEngineName <*> oEngineDefaultTimeout
     oEngineName :: Parser String

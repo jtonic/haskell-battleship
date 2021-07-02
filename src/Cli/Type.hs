@@ -1,10 +1,14 @@
-module Cli.Type where
+module Cli.Type (
+  Options(..),
+  OutputFormat(..),
+  Command(..),
+) where
 
 import           RIO
 
 data Options =
   Options {
-    command      :: Commands,
+    command      :: Command,
     verbose      :: Bool,
     outputFormat :: OutputFormat,
     dryRun       :: Bool,
@@ -16,7 +20,7 @@ data OutputFormat
   | OutputFormatFile FilePath
   deriving (Show)
 
-data Commands =
+data Command =
     Engine {
         engineName      :: String
         , engineTimeout :: Int
