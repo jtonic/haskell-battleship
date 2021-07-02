@@ -1,34 +1,44 @@
 {-# LANGUAGE NamedFieldPuns    #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 {-# OPTIONS_GHC -Wno-unused-matches #-}
 
 module Engine.Battleship where
 
+import           Lens.Micro.TH
 import           RIO
 import           RIO.Text
 import           RIO.Time
-import           Util.Log (infoM)
+import           Util.Log      (infoM)
 
 data Engine = Engine {
-        engineName      :: String
-        , engineTimeout :: Int
+        _engineName      :: String
+        , _engineTimeout :: Int
     } deriving (Show)
 
+makeLenses ''Engine
 
 loggerName :: String
 loggerName = "Battleship"
 
 run' :: Engine -> IO ()
 run' eng = do
-    runRIO eng $ startApp >> sayTime >> stopApp
+    infoM loggerName $ show eng
+    runRIO eng $ startEng >> switchAppName "modified" >> sayTime >> stopEng
 
-startApp :: RIO Engine ()
-startApp = do
+startEng :: RIO Engine ()
+startEng = do
     eng <- ask
-    say $ "Starting the engine " <> pack (engineName eng) <> " ..."
+    say $ "Starting the engine '" <> pack (view engineName eng) <> "' ..."
 
-stopApp :: RIO Engine ()
-stopApp = do
+switchAppName :: Text -> RIO Engine ()
+switchAppName postfix = do
+    eng <- ask
+    let eng' = set engineName (view engineName eng <> "-" <> unpack postfix) eng
+    say $ "Engine name changed from '" <> pack (view engineName eng) <> "' to '" <> pack (view engineName eng') <> "'."
+
+stopEng :: RIO Engine ()
+stopEng = do
     eng <- ask
     say "Stopping the engine."
 

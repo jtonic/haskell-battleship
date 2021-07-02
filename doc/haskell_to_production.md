@@ -1,21 +1,18 @@
 # Haskell to production
 
-
-## Previous sprints
-- [x] [a] Install the haskell platform and create the project structure
-- [x] [a] Install haskell stack
-- [x] [a] Install and configure the VS Code Haskell extension (Haskell Language Server)
-
-## Sprint 2 (28 Jun 2021)
+## Sprint 2 (28 Jun 2021 - 05 Jul 2021)
 - [ ] Command line interface to interact with the business logic (battleship engine)
   - [x] engine
   - [x] client
-  - [ ] clean up the cli options and its commands by garbage
+  - [ ] optparse-alternative data types as lenses
+  - [ ] use lenses/optics to get useful information from CLI options.
+  - [ ] Maybe handling in optparse alternative and use lenses to apply the default alternative
+  - [ ] clean out the garbage out of the cli options
+- [ ] TMP kafka integration + optparse integration
 - [ ] Add the app options in the RIO reader
-- [ ] Use lenses/optics to get useful information from CLI options.
 
   > Note: Address the commands issue by applying [this fix](https://stackoverflow.com/questions/59722106/subcommand-help-using-optparse-applicative)
-- [ ] Simple logging
+- [x] Simple logging
 
 ## Next sprints
 
@@ -87,3 +84,10 @@
     - [x] [a] Create the [domain model](./architecture_design.md#domain-model))
 
 
+
+
+
+## Previous sprints
+- [x] [a] Install the haskell platform and create the project structure
+- [x] [a] Install haskell stack
+- [x] [a] Install and configure the VS Code Haskell extension (Haskell Language Server)

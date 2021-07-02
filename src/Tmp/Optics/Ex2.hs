@@ -4,8 +4,8 @@
 module Tmp.Optics.Ex2 where
 
 import           Lens.Micro.TH
+import           Prelude
 import           RIO
-import Prelude
 
 data Foo =
   Foo
@@ -17,6 +17,9 @@ data Foo =
 makeLensesWith (lensRules & generateLazyPatterns .~ True) ''Foo
 
 -- $(makeLenses ''Foo)
+lensedFoo :: Foo
+lensedFoo = undefined & x .~ 8 & y .~ True
+
 run :: IO ()
 run = do
   print lensedFoo
@@ -25,5 +28,4 @@ run = do
   let y' = view y lensedFoo
    in print y'
   let modif = set x (view x lensedFoo + 10) lensedFoo in print modif
-  where
-    lensedFoo = undefined & x .~ 8 & y .~ True
+

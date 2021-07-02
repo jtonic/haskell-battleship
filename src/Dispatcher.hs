@@ -1,6 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# OPTIONS_GHC -Wno-unused-local-binds #-}
+{-# OPTIONS_GHC -Wno-name-shadowing #-}
+{-# OPTIONS_GHC -Wno-unused-imports #-}
 
 module Dispatcher where
 
@@ -19,12 +21,10 @@ run = dispatch
 
 dispatch :: Options -> IO ()
 dispatch Options {command = T.Engine {..}} = do
-    infoM logger "engine cmd"
-    let eng = B.Engine {..}
+    let eng = B.Engine {_engineName = engineName, _engineTimeout = engineTimeout}
     putStrLn (show eng)
     B.run' eng
     return ()
 dispatch Options {command = T.Client {..}} = do
-    infoM logger "client cmd"
     let _ = Client {..}
     return ()
