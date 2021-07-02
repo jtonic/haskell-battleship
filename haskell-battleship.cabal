@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: eccd5a31d68a801c902cc75ef4ae7fa38c1d477ca77a39e4944e70a9aad03e40
+-- hash: a422e77cd71da768e31cc9361e1a88b45f54ef1e97fa5c29d60e34d5ec9f864d
 
 name:           haskell-battleship
 version:        0.1.0.0
@@ -32,7 +32,8 @@ library
       Dispatcher
       Engine.Battleship
       Engine.Model.Domain
-      Tmp.Optics.Model
+      Tmp.Optics.Ex1
+      Tmp.Optics.Ex2
       Tmp.PatternMatching
       Tmp.RioEx
       Util.Log
@@ -49,6 +50,7 @@ library
       base
     , extra
     , hslogger
+    , microlens-th
     , optparse-applicative
     , rio
   default-language: Haskell2010
@@ -69,6 +71,7 @@ executable battleship
     , extra
     , haskell-battleship
     , hslogger
+    , microlens-th
     , optparse-applicative
     , rio
   default-language: Haskell2010
@@ -91,6 +94,7 @@ test-suite battleship-test
     , haskell-battleship
     , hslogger
     , hspec
+    , microlens-th
     , optparse-applicative
     , rio
   default-language: Haskell2010
