@@ -15,7 +15,7 @@ engineConf = Options {
            , engineTimeout = 100
          }
          , verbose = False
-         , outputFormat = OutPutFormatString
+         , outputFormat = Just OutPutFormatString
          , dryRun = False
          , saveState = False
        }
@@ -27,7 +27,7 @@ clientConf = Options {
            , clientTimeout = 50000
          }
          , verbose = False
-         , outputFormat = OutPutFormatString
+         , outputFormat = Just OutPutFormatString
          , dryRun = False
          , saveState = False
        }

@@ -19,7 +19,7 @@ oOutputFormat = oOutputFormatString <|> oOutputFormatFile
     oOutputFormatString =
       O.flag'
         OutPutFormatString
-        (O.long "output-format-string" <> O.help "Output the result as string")
+        (O.long "output-format-string" <> O.help "Output the result as string (default)")
 
 oCommands :: O.Parser Command
 oCommands =
@@ -50,7 +50,7 @@ oCommands =
 
 optionsParser :: O.Parser Options
 optionsParser =
-  Options <$> oCommands <*> oVerbosity <*> oOutputFormat <*> oDryRun <*>
+  Options <$> oCommands <*> oVerbosity <*> optional oOutputFormat <*> oDryRun <*>
   oSaveState
   where
     oVerbosity =

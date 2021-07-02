@@ -10,7 +10,7 @@ data Options =
   Options {
     command      :: Command,
     verbose      :: Bool,
-    outputFormat :: OutputFormat,
+    outputFormat :: Maybe OutputFormat,
     dryRun       :: Bool,
     saveState    :: Bool
     } deriving (Show)
