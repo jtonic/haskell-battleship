@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9ced02848bd364aa61b21de2b4213383bb4da23598300919f4180ba46ec0b4be
+-- hash: 6ed2518cb3ceaab4fb1aec42839d3e9e9b71d831187cdeca8abfc7bf3d417c5d
 
 name:           haskell-battleship
 version:        0.1.0.0
@@ -32,6 +32,8 @@ library
       Dispatcher
       Engine.Battleship
       Engine.Model.Domain
+      Tmp.Kafka.KafkaConsumer
+      Tmp.Kafka.KafkaProducer
       Tmp.Kafka.Serde.Avro
       Tmp.Kafka.Serde.Model
       Tmp.Optics.Ex1

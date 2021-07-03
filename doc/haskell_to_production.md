@@ -8,7 +8,10 @@
   - [ ] use lenses/optics to get useful information from CLI options.
   - [ ] Maybe handling in optparse alternative and use lenses to apply the default alternative
   - [ ] clean out the garbage out of the cli options
-- [ ] TMP kafka integration + optparse integration
+- [ ] kafka integration
+  - [x] As TMP example
+  - [ ] Avro serde example
+  - [ ] As optparse integration for input
 - [ ] Add the app options in the RIO reader
 
   > Note: Address the commands issue by applying [this fix](https://stackoverflow.com/questions/59722106/subcommand-help-using-optparse-applicative)
