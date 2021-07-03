@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE QuasiQuotes       #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# OPTIONS_GHC -Wno-unused-local-binds #-}
 {-# OPTIONS_GHC -Wno-name-shadowing #-}
@@ -6,15 +7,16 @@
 
 module Dispatcher where
 
-import           Cli.Type          as T
+import           Cli.Type                as T
 
-import           Engine.Battleship as B
-import           Prelude           (putStrLn)
+import           Data.String.Interpolate (i)
+import           Engine.Battleship       as B hiding (loggerName)
+import           Prelude                 (putStrLn)
 import           RIO
-import Util.Log            (infoM)
+import           Util.Log                (infoM)
 
-logger :: String
-logger = "Dispatcher"
+loggerName :: String
+loggerName = "Dispatcher"
 
 run :: Options -> IO ()
 run = dispatch
@@ -22,7 +24,7 @@ run = dispatch
 dispatch :: Options -> IO ()
 dispatch Options {command = T.Engine {..}} = do
     let eng = B.Engine {_engineName = engineName, _engineTimeout = engineTimeout}
-    putStrLn (show eng)
+    infoM loggerName [i| => #{show eng} |]
     B.run' eng
     return ()
 dispatch Options {command = T.Client {..}} = do
