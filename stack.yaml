@@ -2,6 +2,11 @@
 resolver: lts-17.10
 packages:
 - .
-extra-deps: []
-# require-stack-version: -any # Default
-# require-stack-version: ">=2.5"
+nix:
+  enable: true
+  packages:
+  - rdkafka
+  - zlib
+extra-deps:
+  - pure-zlib-0.6.7
+  - hw-kafka-avro-5.1.0

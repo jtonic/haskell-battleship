@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a422e77cd71da768e31cc9361e1a88b45f54ef1e97fa5c29d60e34d5ec9f864d
+-- hash: 9ced02848bd364aa61b21de2b4213383bb4da23598300919f4180ba46ec0b4be
 
 name:           haskell-battleship
 version:        0.1.0.0
@@ -32,6 +32,8 @@ library
       Dispatcher
       Engine.Battleship
       Engine.Model.Domain
+      Tmp.Kafka.Serde.Avro
+      Tmp.Kafka.Serde.Model
       Tmp.Optics.Ex1
       Tmp.Optics.Ex2
       Tmp.PatternMatching
@@ -47,12 +49,17 @@ library
       NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals
   build-depends:
-      base
+      avro
+    , base
     , extra
     , hslogger
+    , hw-kafka-avro
+    , hw-kafka-client
     , microlens-th
     , optparse-applicative
     , rio
+    , string-interpolate
+    , transformers
   default-language: Haskell2010
 
 executable battleship
@@ -67,13 +74,18 @@ executable battleship
       NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base
+      avro
+    , base
     , extra
     , haskell-battleship
     , hslogger
+    , hw-kafka-avro
+    , hw-kafka-client
     , microlens-th
     , optparse-applicative
     , rio
+    , string-interpolate
+    , transformers
   default-language: Haskell2010
 
 test-suite battleship-test
@@ -89,12 +101,17 @@ test-suite battleship-test
       NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base
+      avro
+    , base
     , extra
     , haskell-battleship
     , hslogger
     , hspec
+    , hw-kafka-avro
+    , hw-kafka-client
     , microlens-th
     , optparse-applicative
     , rio
+    , string-interpolate
+    , transformers
   default-language: Haskell2010

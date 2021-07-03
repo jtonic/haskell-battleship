@@ -26,11 +26,16 @@ ghc-options:
 
 dependencies:
   - base
+  - transformers
   - hslogger
   - optparse-applicative
   - rio
   - extra
   - microlens-th
+  - string-interpolate
+  - hw-kafka-client
+  - hw-kafka-avro
+  - avro
 
 extra-source-files:
   - README.md
