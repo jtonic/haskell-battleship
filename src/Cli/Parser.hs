@@ -2,7 +2,7 @@ module Cli.Parser(
     optionsParser
 ) where
 
-import           Cli.Type            (Command (..), Options (..),
+import           Cli.Types           (Command (..), Options (..),
                                       OutputFormat (..))
 import           Options.Applicative as O
 import           RIO

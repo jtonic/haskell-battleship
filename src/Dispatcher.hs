@@ -7,7 +7,7 @@
 
 module Dispatcher where
 
-import           Cli.Type                as T
+import           Cli.Types               as T
 
 import           Data.String.Interpolate (i)
 import           Engine.Battleship       as B hiding (loggerName)

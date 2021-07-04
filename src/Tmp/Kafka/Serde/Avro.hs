@@ -6,7 +6,7 @@ import           Control.Monad.Trans.Except (ExceptT (ExceptT), runExceptT,
                                              withExceptT)
 import           Kafka.Avro
 import           Prelude
-import           Tmp.Kafka.Serde.Model
+import           Tmp.Kafka.Serde.Types
 import           Util.Log                   (infoM)
 
 loggerName :: String

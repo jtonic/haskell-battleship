@@ -1,5 +1,5 @@
 
-module Engine.Model.Domain where
+module Engine.Types where
 
 import           RIO
 

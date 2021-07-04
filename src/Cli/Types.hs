@@ -1,4 +1,4 @@
-module Cli.Type (
+module Cli.Types (
   Options(..),
   OutputFormat(..),
   Command(..),

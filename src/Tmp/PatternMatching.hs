@@ -2,9 +2,9 @@
 
 module Tmp.PatternMatching where
 
-import           Cli.Type as CT
+import           Cli.Types as CT
+import           Prelude   (print)
 import           RIO
-import Prelude (print)
 
 data Action = Engine' {engineName :: String} | Client' {clientPort :: Int} | Unknown deriving (Show)
 

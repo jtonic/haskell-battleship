@@ -3,7 +3,7 @@
 {-# LANGUAGE QuasiQuotes       #-}
 {-# LANGUAGE TemplateHaskell   #-}
 
-module Tmp.Kafka.Serde.Model
+module Tmp.Kafka.Serde.Types
 ( ShotEvent(..)
 , schema'ShotEvent
 ) where
