@@ -36,6 +36,22 @@ dependencies:
   - hw-kafka-client
   - hw-kafka-avro
   - avro
+  - http-client
+  - servant
+  - servant-client
+  - servant-server
+  - sqlite-simple
+  - directory
+  - wai
+  - warp
+  - mtl
+  - http-media
+  - time
+  - string-conversions
+  - aeson
+  - attoparsec
+  - filepath
+  - extra
 
 extra-source-files:
   - README.md

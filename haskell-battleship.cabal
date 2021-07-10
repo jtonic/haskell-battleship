@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: aa4c07fd94f64a41acc23f722106e65dd2fd89ae0f84442f47bbc26d0d51abc4
+-- hash: e02c985ee5a57f8bca0690b9487e0c55be5f9949e8253c15e01ec936a4894302
 
 name:           haskell-battleship
 version:        0.1.0.0
@@ -39,7 +39,14 @@ library
       Tmp.Optics.Ex1
       Tmp.Optics.Ex2
       Tmp.PatternMatching
+      Tmp.Persistence.Ddl
+      Tmp.Persistence.Dml
+      Tmp.Persistence.Runner
       Tmp.RioEx
+      Tmp.WebApi.Client
+      Tmp.WebApi.Data
+      Tmp.WebApi.Server
+      Tmp.WebApi.Types
       Util.Log
   other-modules:
       Paths_haskell_battleship
@@ -51,17 +58,32 @@ library
       NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals
   build-depends:
-      avro
+      aeson
+    , attoparsec
+    , avro
     , base
+    , directory
     , extra
+    , filepath
     , hslogger
+    , http-client
+    , http-media
     , hw-kafka-avro
     , hw-kafka-client
     , microlens-th
+    , mtl
     , optparse-applicative
     , rio
+    , servant
+    , servant-client
+    , servant-server
+    , sqlite-simple
+    , string-conversions
     , string-interpolate
+    , time
     , transformers
+    , wai
+    , warp
   default-language: Haskell2010
 
 executable battleship
@@ -76,18 +98,33 @@ executable battleship
       NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      avro
+      aeson
+    , attoparsec
+    , avro
     , base
+    , directory
     , extra
+    , filepath
     , haskell-battleship
     , hslogger
+    , http-client
+    , http-media
     , hw-kafka-avro
     , hw-kafka-client
     , microlens-th
+    , mtl
     , optparse-applicative
     , rio
+    , servant
+    , servant-client
+    , servant-server
+    , sqlite-simple
+    , string-conversions
     , string-interpolate
+    , time
     , transformers
+    , wai
+    , warp
   default-language: Haskell2010
 
 test-suite battleship-test
@@ -103,17 +140,32 @@ test-suite battleship-test
       NoImplicitPrelude
   ghc-options: -Wall -Werror -Wcompat -Widentities -Wincomplete-uni-patterns -Wincomplete-record-updates -Wno-unused-top-binds -Wno-orphans -XNegativeLiterals -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      avro
+      aeson
+    , attoparsec
+    , avro
     , base
+    , directory
     , extra
+    , filepath
     , haskell-battleship
     , hslogger
     , hspec
+    , http-client
+    , http-media
     , hw-kafka-avro
     , hw-kafka-client
     , microlens-th
+    , mtl
     , optparse-applicative
     , rio
+    , servant
+    , servant-client
+    , servant-server
+    , sqlite-simple
+    , string-conversions
     , string-interpolate
+    , time
     , transformers
+    , wai
+    , warp
   default-language: Haskell2010
