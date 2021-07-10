@@ -1,0 +1,13 @@
+###
+GET http://localhost:8080/users
+
+###
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+    "email": "antonel.pazargic@gmail.com",
+    "registration_date": "2001-01-29",
+    "age": 51,
+    "name": "Antonel-Ernest Pazargic"
+}
