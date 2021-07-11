@@ -1,32 +1,35 @@
 # Haskell to production
 
-## Sprint 2 (28 Jun 2021 - 05 Jul 2021)
-- [ ] Command line interface to interact with the business logic (battleship engine)
-  - [x] engine
-  - [x] client
-  - [ ] optparse-alternative data types as lenses
-  - [ ] use lenses/optics to get useful information from CLI options.
-  - [ ] Maybe handling in optparse alternative and use lenses to apply the default alternative
-  - [ ] clean out the garbage out of the cli options
-- [ ] kafka integration
-  - [x] As TMP example
-  - [ ] Avro serde example
-  - [ ] As optparse integration for input
-- [ ] Add the app options in the RIO reader
+## Sprint 3 (10 Jul - 14 Jul 2021)
+- [x] Command line interface parameters with defaults
+  - [x] clean up the garbage out of the cli options
+  - [x] [CLI Server] kafka
+    - [x] brokers-list - default (localhost:9092)
+    - [x] schema-registry-url
+  - [x] REST
+    - [x] [CLI Server] Service
+      - [x] http-port - default 8080
+    - [x] [CLI client] Client
+      - [x] http-api-url - default (http://)localhost:8080
+    - [x] [CLI Server] Database (sqlite)
+      - [x] db-path
+  - [ ] Learn again ReaderT in RIO and how to handle state in env
+  - [ ] Learn how to use Map and concurrency with STM (__book__ - The simple haskell handbook - ch. Storing Builds in memory with STM)
+- [ ] Add the app options in the RIO reader [ReaderT](https://www.fpcomplete.com/blog/2017/06/readert-design-pattern/)
+
 
   > Note: Address the commands issue by applying [this fix](https://stackoverflow.com/questions/59722106/subcommand-help-using-optparse-applicative)
-- [x] Simple logging
 
 ## Next sprints
 
-- [ ] Handling RIO reader with the optics/lenses
-- [ ] database (with sqlite) integration
-- [ ] kafka integration
-- [ ] engine implementation
-- [ ] REST service integration
-- [ ] REST client integration
 - [ ] Parallelism and concurrency
+- [ ] Finish the model
+- [ ] Finish the DDL for SQLITE db
+- [ ] Handling RIO reader with the optics/lenses
+- [ ] engine implementation
+- [ ] (tmp example) REST service integration
 - [ ] [Optional] Cassandra integration
+- [ ] Application configuration with [conferer](https://blog.10pines.com/2021/03/02/conferer-a-configuration-library-for-haskell/)
 
 ## Backlog
 ### See below the application development lifecycle phases and associated technologies/libraries.
@@ -77,20 +80,34 @@
    - [ ] How security flows in used libraries are handled by the community/ecosystem
 
 
+## Books
+
+- The Simple Haskell Handbook by Marco Samplellegrini
+-
+
 ## Failed/later
 1. [ ] Multi package / multi module application
 
-## Finished sprints
-  - [x] Sprint 1 (16 Jun 2021)
-    - [x] [a] Create the project (structure) - one lib and one executable
-    - [x] [a] Use RIO instead of Prelude module
-    - [x] [a] Create the [domain model](./architecture_design.md#domain-model))
-
-
-
-
 
 ## Previous sprints
+### Sprint 1 (14 Jun - 28 Jun 2021)
+- [x] [a] Create the project (structure) - one lib and one executable
+- [x] [a] Use RIO instead of Prelude module
+- [x] [a] Create the [domain model](./architecture_design.md#domain-model))
 - [x] [a] Install the haskell platform and create the project structure
 - [x] [a] Install haskell stack
 - [x] [a] Install and configure the VS Code Haskell extension (Haskell Language Server)
+- [x] Simple logging
+
+### Sprint 2 (28 Jun - 05 Jul 2021)
+- [x] Command line interface to interact with the business logic (battleship engine)
+  - [x] engine
+  - [x] client
+- [x] kafka integration
+  - [x] As TMP example
+- [x] database (with sqlite) integration
+- [x] (tmp example) kafka integration
+- [x] (tmp example) Avro serde example
+- [x] (tmp example) REST client integration
+
+

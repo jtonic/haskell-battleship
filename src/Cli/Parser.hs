@@ -33,31 +33,28 @@ oCommands =
   where
     oEngine :: Parser Command
     oEngine =
-      Engine <$> oEngineName <*> oEngineDefaultTimeout
-    oEngineName :: Parser String
+      Engine <$> oEngineName <*> oEngineDefaultTimeout <*> oEngineKafkaBrokerList <*> oSchemaRegistryUrl <*> oHttpPort <*> oSqliteDbPath
     oEngineName =
       O.strOption $ O.long "engine-name" <> O.help "The engine name."
-    oEngineDefaultTimeout :: Parser Int
     oEngineDefaultTimeout =
       O.option auto $  O.long "engine-default-timeout" <> O.value -1 <> O.showDefault <> O.help "Default engine timeout (-1 means no timeout)"
+    oEngineKafkaBrokerList =
+      O.option auto $ O.long "kafka-broker-list" <> O.value "localhost:9092" <> O.showDefault <> O.metavar "URL" <> O.help "Kafka brokers list"
+    oSchemaRegistryUrl =
+      O.option auto $ O.long "schema-registry-url" <> O.value "http://localhost:8081" <> O.showDefault <> O.metavar "URL" <> O.help "Avro schema registry URL."
+    oHttpPort =
+      O.option auto $  O.long "http-port" <> O.value 8080 <> O.showDefault <> O.metavar "INT" <> O.help "Server http port"
+    oSqliteDbPath =
+      O.option auto $ O.long "sql-lite-db-path" <> O.value "companion/db/battleship.db" <> O.showDefault <> O.metavar "FILE" <> O.help "Kafka brokers list"
 
     oClient =
-      Client <$> oClientPort <*> oClientTimeout
+      Client <$> oClientPort <*> oClientHttpApiUrl
     oClientPort :: Parser Int
     oClientPort = O.option auto $ O.long "client-port" <> O.value 8080 <> O.showDefault <> O.help "Client port"
-    oClientTimeout :: Parser Int
-    oClientTimeout = O.option auto $ O.long "client-timeout" <> O.value -1 <> O.showDefault <> O.help "Client timeout (-1 means no timeout)"
+    oClientHttpApiUrl = O.option auto $ O.long "client-http-api-url" <> O.value "localhost:8080" <> O.showDefault <> O.help "Web (Http) API url"
 
 optionsParser :: O.Parser Options
 optionsParser =
-  Options <$> oCommands <*> oVerbosity <*> optional oOutputFormat <*> oDryRun <*>
-  oSaveState
+  Options <$> oCommands <*> optional oOutputFormat <*> oVerbosity
   where
-    oVerbosity =
-      O.switch (O.long "verbose" <> O.short 'v' <> O.help "verbosity")
-    oDryRun = O.switch (O.long "dry-run" <> O.help "Dry run the command")
-    oSaveState =
-      O.switch
-        (O.long "save-state" <>
-         O.help
-           "Save the state of the command. Useful for subsequent state base commands.")
+    oVerbosity = O.switch $ O.long "verbose" <> O.short 'v' <> O.help "verbosity"

@@ -8,11 +8,9 @@ import           RIO
 
 data Options =
   Options {
-    command      :: Command,
-    verbose      :: Bool,
-    outputFormat :: Maybe OutputFormat,
-    dryRun       :: Bool,
-    saveState    :: Bool
+    command        :: Command
+    , outputFormat :: Maybe OutputFormat
+    , verbose      :: Bool
     } deriving (Show)
 
 data OutputFormat
@@ -22,12 +20,16 @@ data OutputFormat
 
 data Command =
     Engine {
-        engineName      :: String
-        , engineTimeout :: Int
+        engineName                :: String
+        , engineTimeout           :: Int
+        , engineKafkaBrokerList   :: String
+        , engineSchemaRegistryUrl :: String
+        , engineHttpPort          :: Int
+        , engineSqliteDbPath      :: String
     }
     | Client {
-        clientPort      :: Int
-        , clientTimeout :: Int
+        clientPort         :: Int
+        , clientHttpApiUrl :: String
     }
 
      deriving (Show)

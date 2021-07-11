@@ -3,3 +3,4 @@ stack.yaml.lock
 .history/
 .DS_Store
 
+companion/db/battleship.db

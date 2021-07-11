@@ -13,23 +13,23 @@ engineConf = Options {
          command = Engine {
            engineName = "ubots"
            , engineTimeout = 100
+           , engineKafkaBrokerList = "localhost:9092"
+           , engineSchemaRegistryUrl = "http://localhost:8081"
+           , engineHttpPort = 8080
+           , engineSqliteDbPath = "companion/db/battleship.db"
          }
          , verbose = False
          , outputFormat = Just OutPutFormatString
-         , dryRun = False
-         , saveState = False
        }
 
 clientConf :: Options
 clientConf = Options {
          command = Client {
            clientPort = 8080
-           , clientTimeout = 50000
+           , clientHttpApiUrl = "localhost:8080"
          }
          , verbose = False
          , outputFormat = Just OutPutFormatString
-         , dryRun = False
-         , saveState = False
        }
 
 dispatch :: Options -> Action
